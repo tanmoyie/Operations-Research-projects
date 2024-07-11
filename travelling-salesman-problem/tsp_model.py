@@ -14,7 +14,6 @@ class TravelingSalesmanProblem:
         distance_matrix = np.random.randint(10, 100, size=(self.num_cities, self.num_cities))
         np.fill_diagonal(distance_matrix, 0) # since we created random distances, diagonals also contain values,
         # which is supposed to be zero.
-        print(distance_matrix)
         return distance_matrix
 
     def create_model(self):
@@ -53,7 +52,7 @@ class TravelingSalesmanProblem:
 
     def solve(self):
         solver = SolverFactory('glpk')
-        result = solver.solve(self.model, tee=True)
+        result = solver.solve(self.model, tee=False)
         # result = solver.solve(self.model).write()
 
         # self.model.pprint()
@@ -68,9 +67,8 @@ class TravelingSalesmanProblem:
         l = list(self.model.x.keys())
         for i in l:
             if self.model.x[i]() == 1.0:
-                print(i, '--', self.model.x[i]())
+                # print(i, '--', self.model.x[i]())
                 route.append(i)
-
         return route
 
     def print_route(self, route):

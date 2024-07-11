@@ -73,7 +73,7 @@ class GeneticAlgorithmTSP:
 
             best_fitness = min(self.calculate_fitness(ind) for ind in self.population)
             # fitness function of distance, so we minimize this distance
-            print(f"Generation {generation}: Best Fitness = {best_fitness}")
+            # print(f"Generation {generation}: Best Fitness = {best_fitness}")
 
         best_individual = min(self.population, key=self.calculate_fitness)
         return best_individual, self.calculate_fitness(best_individual)
