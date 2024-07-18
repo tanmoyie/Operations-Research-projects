@@ -16,6 +16,7 @@ class GeneticAlgorithmTSP:
         for _ in range(self.pop_size):
             individual = list(np.random.permutation(self.num_cities))
             population.append(individual)
+            # print('Initial Population: ', population)
         return population
 
     def calculate_fitness(self, individual):
@@ -66,10 +67,13 @@ class GeneticAlgorithmTSP:
             parents = self.selection()
             next_population = []
             for i in range(0, len(parents), 2):
+
                 parent1, parent2 = parents[i], parents[i + 1]
                 child1, child2 = self.crossover(parent1, parent2), self.crossover(parent2, parent1)
                 next_population.extend([self.mutate(child1), self.mutate(child2)])
             self.population = next_population
+
+            print('Initial population: ', self.population)
 
             best_fitness = min(self.calculate_fitness(ind) for ind in self.population)
             # fitness function of distance, so we minimize this distance
