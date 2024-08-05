@@ -7,7 +7,6 @@ Will Add an outline of the repo & some outputs
 **Description:** Finding the shortest possible route that visits a set of cities and returns to the origin city.
 
 **Solution Algorithms:**
-
 **Exact Algorithms:** Dynamic Programming, Branch and Bound, Linear Programming.
 **Heuristic Algorithms:** Nearest Neighbor Heuristic [O($n^2$)], Christofides Algorithm.
 **Metaheuristic Algorithms:** Genetic Algorithms, Simulated Annealing, Ant Colony Optimization.
@@ -22,7 +21,6 @@ Fig: An optimized TSP route
 Description: Optimizing the final leg of the delivery process to ensure timely delivery to customers.
 
 **Solution Algorithms:**
-
 Exact Algorithms: Mixed-Integer Programming (MIP).
 Heuristic Algorithms: Clarke-Wright Savings Algorithm, Local Search.
 Metaheuristic Algorithms: Genetic Algorithms, Simulated Annealing, Ant Colony Optimization.
