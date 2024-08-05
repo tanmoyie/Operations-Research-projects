@@ -1,5 +1,35 @@
 # Operations-Research-projects
 
-Add an outline of the repo & some outputs
+Will Add an outline of the repo & some outputs
 
-![image](https://github.com/tanmoyie/Operations-Research-projects/assets/19787712/88f6bdf7-6a0a-4e19-923b-dffb87813e68)
+## Travelling Salesman Problem
+
+**Description:** Finding the shortest possible route that visits a set of cities and returns to the origin city.
+
+**Solution Algorithms:**
+**Exact Algorithms:** Dynamic Programming, Branch and Bound, Linear Programming.
+**Heuristic Algorithms:** Nearest Neighbor Heuristic [O($n^2$)], Christofides Algorithm.
+**Metaheuristic Algorithms:** Genetic Algorithms, Simulated Annealing, Ant Colony Optimization.
+
+
+![tsp_route](https://github.com/user-attachments/assets/efd9d9ce-78ae-4303-a4f2-e475e3c2ae3b)
+
+Fig: An optimized TSP route
+
+
+## Last-Mile Delivery Optimization
+Description: Optimizing the final leg of the delivery process to ensure timely delivery to customers.
+
+**Solution Algorithms:**
+Exact Algorithms: Mixed-Integer Programming (MIP).
+Heuristic Algorithms: Clarke-Wright Savings Algorithm, Local Search.
+Metaheuristic Algorithms: Genetic Algorithms, Simulated Annealing, Ant Colony Optimization.
+++
+
+## Scheduling
+Description: Optimizing the assignment of loads to vehicles and scheduling deliveries.
+
+**Solution Algorithms:**
+Exact Algorithms: Integer Programming.
+Heuristic Algorithms: Greedy Algorithms, Local Search.
+Metaheuristic Algorithms: Genetic Algorithms, Simulated Annealing.
