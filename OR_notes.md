@@ -1399,9 +1399,7 @@ $$
 The corresponding dual problem is:
 
 **Dual Problem:**
-$$
-\text{Maximize } 4y_1 + 2y_2
-$$
+$ \text{Maximize } 4y_1 + 2y_2 $
 **Subject to:**
 $$
 y_1 + y_2 \leq 2
