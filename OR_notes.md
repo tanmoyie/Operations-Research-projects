@@ -30,20 +30,20 @@ $$
 **Example:**
 Consider the same problem but now you must produce whole units of A and B, i.e., \(x_1\) and \(x_2\) must be integers. The problem formulation becomes:
 
-\[
+$$
 \text{Minimize } C = 2x_1 + 3x_2
-\]
+$$
 
 Subject to constraints:
 
-\[
+$$
 \begin{align*}
 x_1 + x_2 & \leq 100 \\
 2x_1 + x_2 & \geq 150 \\
 x_1, x_2 & \geq 0 \\
 x_1, x_2 & \text{are integers}
 \end{align*}
-\]
+$$
 
 ### **Key Difference:**
 - **LP:** All variables are continuous.
@@ -115,17 +115,17 @@ Answer:
 - **Decision Variables:**
   - \( x_{ij} \): Binary variable, where \( x_{ij} = 1 \) if the path from city \( i \) to city \( j \) is included in the tour, and 0 otherwise.
 - **Objective Function:**
-  \[
+  $$
   \text{Minimize } \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
-  \]
+  $$
   where \( c_{ij} \) is the distance or cost between city \( i \) and city \( j \).
 - **Constraints:**
-  \[
+  $$
   \sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i
-  \]
-  \[
+  $$
+  $$
   \sum_{i=1, i \neq j}^{n} x_{ij} = 1 \quad \forall j
-  \]
+  $$
   - Subtour elimination constraints to prevent smaller loops that don't include all cities.
 
 #### **Solution Methods:**
@@ -151,20 +151,20 @@ Answer:
   - \( x_{ijk} \): Binary variable, where \( x_{ijk} = 1 \) if vehicle \( k \) travels directly from customer \( i \) to customer \( j \), and 0 otherwise.
   - \( q_{ik} \): Load of vehicle \( k \) after visiting customer \( i \).
 - **Objective Function:**
-  \[
+  $$
   \text{Minimize } \sum_{k=1}^{K} \sum_{i=0}^{n} \sum_{j=0, j \neq i}^{n} c_{ij} x_{ijk}
-  \]
+  $$
   where \( c_{ij} \) is the distance or cost between customer \( i \) and customer \( j \).
 - **Constraints:**
-  \[
+  $$
   \sum_{j=1, j \neq i}^{n} x_{ijk} = 1 \quad \forall i, k
-  \]
-  \[
+  $$
+  $$
   \sum_{k=1}^{K} \sum_{i=1}^{n} x_{ijk} = 1 \quad \forall j
-  \]
-  \[
+  $$
+  $$
   q_{ik} + d_j - q_{jk} \leq Q (1 - x_{ijk}) \quad \forall i, j, k
-  \]
+  $$
   - Capacity constraints, where \( d_j \) is the demand of customer \( j \) and \( Q \) is the vehicle capacity.
   
 #### **Solution Methods:**
@@ -600,9 +600,9 @@ Benders Decomposition is a technique used to solve large-scale optimization prob
    - **Identify the Problem Structure:** Divide the problem into a master problem and subproblem(s). Typically, the master problem involves decisions that are difficult to solve directly, such as binary decisions (e.g., location decisions), while the subproblem(s) involve easier continuous variables (e.g., flow or demand satisfaction).
 
    - **Original Problem:**  
-     \[
+     $$
      \min \{ c^T x + q(y) \mid Ax + By \geq d, x \in X, y \in Y \}
-     \]
+     $$
      - \(x\): Decision variables in the master problem.
      - \(y\): Decision variables in the subproblem(s).
      - \(c^T x\): Objective function related to \(x\).
@@ -643,36 +643,36 @@ In the context of the Facility Location Problem, Benders Decomposition can effec
      - \(x_j\): Binary variable indicating whether a facility \(j\) is opened (master problem).
      - \(y_{ij}\): Continuous variable indicating the fraction of demand from customer \(i\) served by facility \(j\) (subproblem).
    - **Original Problem:**  
-     \[
+     $$
      \min \sum_j f_j x_j + \sum_{i,j} c_{ij} y_{ij}
-     \]
+     $$
      Subject to:
-     \[
+     $$
      \sum_j y_{ij} = 1 \quad \forall i, \quad y_{ij} \leq x_j \quad \forall i,j, \quad x_j \in \{0, 1\}, \quad y_{ij} \geq 0
-     \]
+     $$
      Where:
      - \(f_j\): Fixed cost of opening facility \(j\).
      - \(c_{ij}\): Cost of serving customer \(i\) from facility \(j\).
 
 #### **2. Decompose the Problem:**
    - **Master Problem:** Determines which facilities to open:
-     \[
+     $$
      \min \sum_j f_j x_j + \theta
-     \]
+     $$
      Subject to:
-     \[
+     $$
      x_j \in \{0, 1\}
-     \]
+     $$
      Where \(\theta\) represents the value of the subproblem (customer assignment) for given facility decisions \(x_j\).
 
    - **Subproblem:** For fixed \(x_j\), solve the customer assignment:
-     \[
+     $$
      \theta(x) = \min \sum_{i,j} c_{ij} y_{ij}
-     \]
+     $$
      Subject to:
-     \[
+     $$
      \sum_j y_{ij} = 1, \quad y_{ij} \leq x_j, \quad y_{ij} \geq 0
-     \]
+     $$
 
 #### **3. Solve the Master Problem:**
    - **Initial Solution:** Start by solving a relaxed version of the master problem (e.g., open no facilities or a minimal feasible set).
@@ -877,16 +877,16 @@ Column Generation is a powerful technique for solving large-scale Vehicle Routin
      - Vehicles must not exceed their capacity.
 
    **Mathematical Formulation:**
-   \[
+   $$
    \text{Minimize} \sum_r c_r x_r
-   \]
+   $$
    Subject to:
-   \[
+   $$
    \sum_r \text{(Demand satisfied by route } r) \geq \text{Total demand for customers}
-   \]
-   \[
+   $$
+   $$
    \sum_r x_r \text{ satisfying capacity constraints}
-   \]
+   $$
 
 #### **2. Decomposition Approach:**
 
@@ -896,16 +896,16 @@ Column Generation is a powerful technique for solving large-scale Vehicle Routin
    - **Constraints:** Ensure that all customers are served and that capacity constraints are respected.
 
    **Mathematical Formulation:**
-   \[
+   $$
    \text{Minimize} \sum_{r \in R} c_r x_r
-   \]
+   $$
    Subject to:
-   \[
+   $$
    \sum_{r \in R} \text{(Demand satisfied by route } r) \geq \text{Total demand}
-   \]
-   \[
+   $$
+   $$
    x_r \in \{0, 1\} \text{ for all } r \in R
-   \]
+   $$
    Where \(R\) is the set of columns (routes).
 
 **b. Subproblem (Pricing Problem):**
@@ -913,13 +913,13 @@ Column Generation is a powerful technique for solving large-scale Vehicle Routin
    - **Pricing Problem:** For each route, calculate its reduced cost using dual values (prices) from the master problem. A route with negative reduced cost indicates that adding it to the master problem could improve the overall solution.
 
    **Mathematical Formulation:**
-   \[
+   $$
    \text{Minimize } \text{Reduced cost of route } r = c_r - \text{Dual values} \times \text{(Constraints satisfied by route } r)
-   \]
+   $$
    Subject to:
-   \[
+   $$
    \text{Route } r \text{ must be feasible}
-   \]
+   $$
 
 #### **3. Solve the Master Problem:**
    - Solve the initial master problem with the restricted set of columns. Obtain the dual values associated with the constraints.
@@ -971,9 +971,9 @@ In Column Generation, the decision on which variables (columns) to include in th
 
 1. **Understand Reduced Cost:**
    - **Reduced Cost:** The reduced cost of a variable (column) measures how much the objective function of the master problem would improve if that variable were added to the solution. For a minimization problem, the reduced cost is defined as:
-     \[
+     $$
      \text{Reduced Cost}_r = c_r - \pi^T \cdot a_r
-     \]
+     $$
      Where:
      - \( c_r \): Cost associated with column \( r \).
      - \( \pi \): Vector of dual prices (dual values) from the master problem's constraints.
@@ -985,9 +985,9 @@ In Column Generation, the decision on which variables (columns) to include in th
    - The subproblem identifies potential columns to add to the master problem by solving the pricing problem. The pricing problem aims to find columns with negative reduced costs.
 
    **Mathematical Formulation of the Pricing Problem:**
-   \[
+   $$
    \text{Minimize } c_r - \pi^T \cdot a_r
-   \]
+   $$
    Subject to:
    - The feasibility constraints for the subproblem.
 
@@ -1015,9 +1015,9 @@ Consider the Vehicle Routing Problem (VRP) as an example:
 2. **Solve the Subproblem:**
    - Solve the pricing problem to find new routes (columns) with potential for reducing the total route cost.
    - Calculate the reduced cost for each potential route:
-     \[
+     $$
      \text{Reduced Cost}_r = c_r - \pi^T \cdot a_r
-     \]
+     $$
    - Select routes where the reduced cost is negative.
 
 3. **Update Master Problem:**
@@ -1041,16 +1041,16 @@ The **primal-dual principle** is a fundamental concept in optimization theory th
 
 #### **Primal Problem:**
 Given an optimization problem in its primal form:
-\[
+$$
 \text{Minimize } c^T x
-\]
+$$
 Subject to:
-\[
+$$
 Ax \geq b
-\]
-\[
+$$
+$$
 x \geq 0
-\]
+$$
 Where:
 - \( c \) is a vector of costs.
 - \( A \) is a matrix of constraints.
@@ -1059,16 +1059,16 @@ Where:
 
 #### **Dual Problem:**
 The dual problem is derived from the primal problem and involves maximizing the dual objective subject to dual constraints. For the above primal problem, the dual problem is:
-\[
+$$
 \text{Maximize } b^T y
-\]
+$$
 Subject to:
-\[
+$$
 A^T y \leq c
-\]
-\[
+$$
+$$
 y \geq 0
-\]
+$$
 Where:
 - \( y \) is a vector of dual variables (also known as shadow prices).
 
@@ -1077,23 +1077,23 @@ Where:
 #### **Weak Duality Theorem:**
 - **Statement:** The value of the objective function for any feasible solution of the primal problem is always greater than or equal to the value of the objective function for any feasible solution of the dual problem.
 - **Mathematical Formulation:** If \(x^*\) is a feasible solution to the primal problem and \(y^*\) is a feasible solution to the dual problem, then:
-  \[
+  $$
   c^T x^* \geq b^T y^*
-  \]
+  $$
 
 #### **Strong Duality Theorem:**
 - **Statement:** If both the primal and dual problems have feasible solutions, then the optimal values of the primal and dual problems are equal.
 - **Mathematical Formulation:** If \(x^*\) and \(y^*\) are optimal solutions to the primal and dual problems, respectively, then:
-  \[
+  $$
   c^T x^* = b^T y^*
-  \]
+  $$
 - **Complementary Slackness:** For optimal solutions \(x^*\) and \(y^*\), the complementary slackness conditions hold:
-  \[
+  $$
   y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i
-  \]
-  \[
+  $$
+  $$
   x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j
-  \]
+  $$
 
 #### **Duality Gap:**
 - **Definition:** The difference between the primal and dual objective values. Strong duality implies that this gap is zero at optimality.
@@ -1113,34 +1113,34 @@ Where:
 ### **4. Example:**
 
 Consider the following primal problem:
-\[
+$$
 \text{Minimize } 3x_1 + 2x_2
-\]
+$$
 Subject to:
-\[
+$$
 2x_1 + x_2 \geq 8
-\]
-\[
+$$
+$$
 x_1 + 2x_2 \geq 6
-\]
-\[
+$$
+$$
 x_1, x_2 \geq 0
-\]
+$$
 
 The corresponding dual problem is:
-\[
+$$
 \text{Maximize } 8y_1 + 6y_2
-\]
+$$
 Subject to:
-\[
+$$
 2y_1 + y_2 \leq 3
-\]
-\[
+$$
+$$
 y_1 + 2y_2 \leq 2
-\]
-\[
+$$
+$$
 y_1, y_2 \geq 0
-\]
+$$
 
 By solving both problems, the strong duality theorem asserts that if both problems are feasible, the optimal objective values will be equal, and the complementary slackness conditions will be satisfied.
 
@@ -1204,23 +1204,23 @@ The Traveling Salesman Problem (TSP) can be formulated as a linear programming p
 
    **Objective Function:**
    - Minimize the total distance:
-     \[
+     $$
      \text{Minimize } \sum_{i \neq j} d_{ij} x_{ij}
-     \]
+     $$
      where \( d_{ij} \) is the distance between city \( i \) and city \( j \).
 
    **Constraints:**
    - Each city must be visited exactly once:
-     \[
+     $$
      \sum_{j \neq i} x_{ij} = 1 \text{ for all } i
-     \]
-     \[
+     $$
+     $$
      \sum_{i \neq j} x_{ij} = 1 \text{ for all } j
-     \]
+     $$
    - Subtour elimination constraints (not included in the LP relaxation but are necessary for the integer problem):
-     \[
+     $$
      \text{Eliminate subtours to ensure a single cycle}
-     \]
+     $$
 
    For this example, we will solve a simplified version of the TSP as an LP problem by relaxing the integrality constraints, which allows the use of the Simplex method.
 
@@ -1238,23 +1238,23 @@ The Traveling Salesman Problem (TSP) can be formulated as a linear programming p
 **Formulate LP Relaxation:**
 
 1. **Objective Function:**
-   \[
+   $$
    \text{Minimize } 10x_{AB} + 15x_{AC} + 20x_{AD} + 35x_{BC} + 25x_{BD} + 30x_{CD}
-   \]
+   $$
 
 2. **Constraints:**
-   \[
+   $$
    x_{AB} + x_{AC} + x_{AD} = 1 \text{ for city A}
-   \]
-   \[
+   $$
+   $$
    x_{BA} + x_{BC} + x_{BD} = 1 \text{ for city B}
-   \]
-   \[
+   $$
+   $$
    x_{CA} + x_{CB} + x_{CD} = 1 \text{ for city C}
-   \]
-   \[
+   $$
+   $$
    x_{DA} + x_{DB} + x_{DC} = 1 \text{ for city D}
-   \]
+   $$
 
 **Solve Using Simplex Method:**
 
@@ -1284,17 +1284,17 @@ The principle of primal-dual is a core concept in optimization theory that conne
 The primal problem is usually formulated as follows:
 
 **Minimize:**
-\[
+$$
 c^T x
-\]
+$$
 
 **Subject to:**
-\[
+$$
 Ax \geq b
-\]
-\[
+$$
+$$
 x \geq 0
-\]
+$$
 
 where:
 - \(c\) is a vector of coefficients for the objective function.
@@ -1307,17 +1307,17 @@ where:
 The dual problem is derived from the primal problem and typically formulated as follows:
 
 **Maximize:**
-\[
+$$
 b^T y
-\]
+$$
 
 **Subject to:**
-\[
+$$
 A^T y \leq c
-\]
-\[
+$$
+$$
 y \geq 0
-\]
+$$
 
 where:
 - \(y\) is the vector of dual variables (also known as shadow prices).
@@ -1329,30 +1329,30 @@ where:
 
 - **Statement:** The value of the objective function for any feasible solution of the primal problem is always greater than or equal to the value of the objective function for any feasible solution of the dual problem.
 - **Mathematical Formulation:** If \(x^*\) is a feasible solution to the primal problem and \(y^*\) is a feasible solution to the dual problem, then:
-  \[
+  $$
   c^T x^* \geq b^T y^*
-  \]
+  $$
   This inequality implies that the objective value of the dual problem provides a lower bound for the objective value of the primal problem.
 
 #### **Strong Duality Theorem:**
 
 - **Statement:** If both the primal and dual problems have feasible solutions, then the optimal values of the primal and dual problems are equal.
 - **Mathematical Formulation:** If \(x^*\) is an optimal solution to the primal problem and \(y^*\) is an optimal solution to the dual problem, then:
-  \[
+  $$
   c^T x^* = b^T y^*
-  \]
+  $$
 - **Implication:** The optimal value of the primal problem is equal to the optimal value of the dual problem, provided both problems are feasible.
 
 #### **Complementary Slackness:**
 
 - **Statement:** At optimality, the primal and dual solutions satisfy complementary slackness conditions. This means that for each constraint in the primal and each variable in the dual, either the constraint is tight (saturated) or the corresponding dual variable is zero, and vice versa.
 - **Mathematical Formulation:**
-  \[
+  $$
   y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i
-  \]
-  \[
+  $$
+  $$
   x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j
-  \]
+  $$
   where \(a_i\) is the \(i\)-th row of matrix \(A\), and \(b_i\) is the \(i\)-th element of vector \(b\).
 
 ### **3. Practical Implications**
@@ -1372,36 +1372,36 @@ where:
 Consider a simple LP problem:
 
 **Primal Problem:**
-\[
+$$
 \text{Minimize } 2x_1 + 3x_2
-\]
+$$
 **Subject to:**
-\[
+$$
 x_1 + x_2 \geq 4
-\]
-\[
+$$
+$$
 x_1 \geq 2
-\]
-\[
+$$
+$$
 x_1, x_2 \geq 0
-\]
+$$
 
 The corresponding dual problem is:
 
 **Dual Problem:**
-\[
+$$
 \text{Maximize } 4y_1 + 2y_2
-\]
+$$
 **Subject to:**
-\[
+$$
 y_1 + y_2 \leq 2
-\]
-\[
+$$
+$$
 y_1 \leq 3
-\]
-\[
+$$
+$$
 y_1, y_2 \geq 0
-\]
+$$
 
 By solving both problems:
 - **Primal Solution:** \(x_1 = 2, x_2 = 2\) with objective value 10.
