@@ -1386,9 +1386,9 @@ $\text{Minimize } 2x_1 + 3x_2$
 **Subject to:**
 $x_1 + x_2 \geq 4$
 
-$ x_1 \geq 2 $
+$x_1 \geq 2$
 
-$ x_1, x_2 \geq 0 $
+$x_1, x_2 \geq 0$
 
 The corresponding dual problem is:
 
