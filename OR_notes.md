@@ -1294,17 +1294,11 @@ The principle of primal-dual is a core concept in optimization theory that conne
 The primal problem is usually formulated as follows:
 
 **Minimize:**
-$
-c^T x
-$
+$c^T x$
 
 **Subject to:**
-$
-Ax \geq b
-$
-$
-x \geq 0
-$
+$Ax \geq b$
+$x \geq 0$
 
 where:
 - \(c\) is a vector of coefficients for the objective function.
@@ -1317,17 +1311,11 @@ where:
 The dual problem is derived from the primal problem and typically formulated as follows:
 
 **Maximize:**
-$
-b^T y
-$
+$b^T y$
 
 **Subject to:**
-$
-A^T y \leq c
-$
-$
-y \geq 0
-$
+$A^T y \leq c$
+$y \geq 0$
 
 where:
 - \(y\) is the vector of dual variables (also known as shadow prices).
@@ -1339,15 +1327,13 @@ where:
 
 - **Statement:** The value of the objective function for any feasible solution of the primal problem is always greater than or equal to the value of the objective function for any feasible solution of the dual problem.
 - **Mathematical Formulation:** If \(x^*\) is a feasible solution to the primal problem and \(y^*\) is a feasible solution to the dual problem, then:
-  $
-  c^T x^* \geq b^T y^*
-  $
+  $c^T x^* \geq b^T y^*$
   This inequality implies that the objective value of the dual problem provides a lower bound for the objective value of the primal problem.
 
 #### **Strong Duality Theorem:**
 
 - **Statement:** If both the primal and dual problems have feasible solutions, then the optimal values of the primal and dual problems are equal.
-- **Mathematical Formulation:** If \(x^*\) is an optimal solution to the primal problem and \(y^*\) is an optimal solution to the dual problem, then:
+- **Mathematical Formulation:** If $x^*$ is an optimal solution to the primal problem and $y^*$ is an optimal solution to the dual problem, then:
   $c^T x^* = b^T y^*$
 - **Implication:** The optimal value of the primal problem is equal to the optimal value of the dual problem, provided both problems are feasible.
 
@@ -1355,12 +1341,8 @@ where:
 
 - **Statement:** At optimality, the primal and dual solutions satisfy complementary slackness conditions. This means that for each constraint in the primal and each variable in the dual, either the constraint is tight (saturated) or the corresponding dual variable is zero, and vice versa.
 - **Mathematical Formulation:**
-  $
-  y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i
-  $
-  $
-  x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j
-  $
+  $y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i$
+  $x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j$
   where \(a_i\) is the \(i\)-th row of matrix \(A\), and \(b_i\) is the \(i\)-th element of vector \(b\).
 
 ### **15.3. Practical Implications**
