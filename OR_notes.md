@@ -16,13 +16,11 @@ $$\int_a^b f(x)\,dx = F(b) - F(a)$$
 
 Subject to constraints:
 
-\[
-\begin{align*}
+$$
 x_1 + x_2 & \leq 100 \quad (\text{resource constraint}) \\
 2x_1 + x_2 & \geq 150 \quad (\text{demand constraint}) \\
 x_1, x_2 & \geq 0 \quad (\text{non-negativity constraint})
-\end{align*}
-\]
+$$
 
 ### **Mixed-Integer Programming (MIP)**
 - **Objective:** Similar to LP, you want to optimize a linear objective function subject to linear constraints. However, in MIP, some or all decision variables are restricted to be integers.
