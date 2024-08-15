@@ -112,12 +112,12 @@ LP techniques are generally more straightforward and faster due to the continuou
 
 #### **Formulation:**
 - **Decision Variables:**
-  - $ x_{ij} $: Binary variable, where $ x_{ij} = 1 $ if the path from city $ i $ to city $ j $ is included in the tour, and 0 otherwise.
+  - $x_{ij}$: Binary variable, where $x_{ij} = 1$ if the path from city $i$ to city $j$ is included in the tour, and 0 otherwise.
 - **Objective Function:**
   $
   \text{Minimize } \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
   $
-  where $ c_{ij} $ is the distance or cost between city $ i $ and city $ j $.
+  where $c_{ij}$ is the distance or cost between city $i$ and city $j$.
 - **Constraints:**
   $
   \sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i
