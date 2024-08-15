@@ -10,7 +10,7 @@
 - **Variables:** All decision variables are continuous, meaning they can take any value within a given range.
 
 **Example:**
-You want to minimize the cost of producing two products, A and B. Let \(x_1\) be the number of units of A, and \(x_2\) be the number of units of B. The cost function might be:
+You want to minimize the cost of producing two products, A and B. Let $x_1$ be the number of units of A, and $x_2$ be the number of units of B. The cost function might be:
 
 $\text{Minimize } C = 2x_1 + 3x_2$
 
@@ -30,7 +30,7 @@ $
 - **Variables:** MIP combines both continuous and integer variables. This makes MIP more complex and computationally challenging compared to LP.
 
 **Example:**
-Consider the same problem but now you must produce whole units of A and B, i.e., \(x_1\) and \(x_2\) must be integers. The problem formulation becomes:
+Consider the same problem but now you must produce whole units of A and B, i.e., $x_1$ and $x_2$ must be integers. The problem formulation becomes:
 
 $
 \text{Minimize } C = 2x_1 + 3x_2
@@ -114,12 +114,12 @@ LP techniques are generally more straightforward and faster due to the continuou
 
 #### **Formulation:**
 - **Decision Variables:**
-  - \( x_{ij} \): Binary variable, where \( x_{ij} = 1 \) if the path from city \( i \) to city \( j \) is included in the tour, and 0 otherwise.
+  - $ x_{ij} $: Binary variable, where $ x_{ij} = 1 $ if the path from city $ i $ to city $ j $ is included in the tour, and 0 otherwise.
 - **Objective Function:**
   $
   \text{Minimize } \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} c_{ij} x_{ij}
   $
-  where \( c_{ij} \) is the distance or cost between city \( i \) and city \( j \).
+  where $ c_{ij} $ is the distance or cost between city $ i $ and city $ j $.
 - **Constraints:**
   $
   \sum_{j=1, j \neq i}^{n} x_{ij} = 1 \quad \forall i
@@ -149,13 +149,13 @@ LP techniques are generally more straightforward and faster due to the continuou
 
 #### **Formulation:**
 - **Decision Variables:**
-  - \( x_{ijk} \): Binary variable, where \( x_{ijk} = 1 \) if vehicle \( k \) travels directly from customer \( i \) to customer \( j \), and 0 otherwise.
-  - \( q_{ik} \): Load of vehicle \( k \) after visiting customer \( i \).
+  - $ x_{ijk} $: Binary variable, where $ x_{ijk} = 1 $ if vehicle $ k $ travels directly from customer $ i $ to customer $ j $, and 0 otherwise.
+  - $ q_{ik} $: Load of vehicle $ k $ after visiting customer $ i $.
 - **Objective Function:**
   $
   \text{Minimize } \sum_{k=1}^{K} \sum_{i=0}^{n} \sum_{j=0, j \neq i}^{n} c_{ij} x_{ijk}
   $
-  where \( c_{ij} \) is the distance or cost between customer \( i \) and customer \( j \).
+  where $ c_{ij} $ is the distance or cost between customer $ i $ and customer $ j $.
 - **Constraints:**
   $
   \sum_{j=1, j \neq i}^{n} x_{ijk} = 1 \quad \forall i, k
@@ -166,7 +166,7 @@ LP techniques are generally more straightforward and faster due to the continuou
   $
   q_{ik} + d_j - q_{jk} \leq Q (1 - x_{ijk}) \quad \forall i, j, k
   $
-  - Capacity constraints, where \( d_j \) is the demand of customer \( j \) and \( Q \) is the vehicle capacity.
+  - Capacity constraints, where $ d_j $ is the demand of customer $ j $ and $ Q $ is the vehicle capacity.
   
 #### **Solution Methods:**
 - **Exact Methods:**
@@ -609,22 +609,22 @@ Benders Decomposition is a technique used to solve large-scale optimization prob
      $
      \min \{ c^T x + q(y) \mid Ax + By \geq d, x \in X, y \in Y \}
      $
-     - \(x\): Decision variables in the master problem.
-     - \(y\): Decision variables in the subproblem(s).
-     - \(c^T x\): Objective function related to \(x\).
-     - \(q(y)\): Cost function related to \(y\).
-     - \(Ax + By \geq d\): Constraints linking \(x\) and \(y\).
+     - $x$: Decision variables in the master problem.
+     - $y$: Decision variables in the subproblem(s).
+     - $c^T x$: Objective function related to $x$.
+     - $q(y)$: Cost function related to $y$.
+     - $Ax + By \geq d$: Constraints linking $x$ and $y$.
 
 #### **2. Decompose the Problem:**
-   - **Master Problem:** Solve the master problem with the current values of \(y\) fixed (typically starting with an initial feasible solution).
-   - **Subproblem(s):** Solve the subproblem for the given \(x\) from the master problem to determine the feasibility and objective function value.
+   - **Master Problem:** Solve the master problem with the current values of $y$ fixed (typically starting with an initial feasible solution).
+   - **Subproblem(s):** Solve the subproblem for the given $x$ from the master problem to determine the feasibility and objective function value.
 
 #### **3. Solve the Master Problem:**
    - **Initial Master Problem:** Start with a relaxed version of the master problem, often ignoring some constraints (related to the subproblem).
-   - **Decision Variables:** Solve for \(x\), which determines high-level decisions such as which facilities to open.
+   - **Decision Variables:** Solve for $x$, which determines high-level decisions such as which facilities to open.
 
 #### **4. Solve the Subproblem:**
-   - **Feasibility Check:** Check if the current solution \(x\) from the master problem leads to a feasible subproblem.
+   - **Feasibility Check:** Check if the current solution $x$ from the master problem leads to a feasible subproblem.
    - **Dual Variables:** If infeasible, generate Benders cuts (constraints) from the dual variables of the subproblem to add to the master problem.
    - **Objective Function Evaluation:** If feasible, calculate the objective value of the subproblem and generate optimality cuts.
 
@@ -646,8 +646,8 @@ In the context of the Facility Location Problem, Benders Decomposition can effec
 #### **1. Problem Formulation for FLP:**
    - **Objective:** Minimize the total cost of opening facilities and serving customers.
    - **Decision Variables:**
-     - \(x_j\): Binary variable indicating whether a facility \(j\) is opened (master problem).
-     - \(y_{ij}\): Continuous variable indicating the fraction of demand from customer \(i\) served by facility \(j\) (subproblem).
+     - $x_j$: Binary variable indicating whether a facility $j$ is opened (master problem).
+     - $y_{ij}$: Continuous variable indicating the fraction of demand from customer $i$ served by facility $j$ (subproblem).
    - **Original Problem:**  
      $
      \min \sum_j f_j x_j + \sum_{i,j} c_{ij} y_{ij}
@@ -657,8 +657,8 @@ In the context of the Facility Location Problem, Benders Decomposition can effec
      \sum_j y_{ij} = 1 \quad \forall i, \quad y_{ij} \leq x_j \quad \forall i,j, \quad x_j \in \{0, 1\}, \quad y_{ij} \geq 0
      $
      Where:
-     - \(f_j\): Fixed cost of opening facility \(j\).
-     - \(c_{ij}\): Cost of serving customer \(i\) from facility \(j\).
+     - $f_j$: Fixed cost of opening facility $j$.
+     - $c_{ij}$: Cost of serving customer $i$ from facility $j$.
 
 #### **2. Decompose the Problem:**
    - **Master Problem:** Determines which facilities to open:
@@ -669,9 +669,9 @@ In the context of the Facility Location Problem, Benders Decomposition can effec
      $
      x_j \in \{0, 1\}
      $
-     Where \(\theta\) represents the value of the subproblem (customer assignment) for given facility decisions \(x_j\).
+     Where $\theta$ represents the value of the subproblem (customer assignment) for given facility decisions $x_j$.
 
-   - **Subproblem:** For fixed \(x_j\), solve the customer assignment:
+   - **Subproblem:** For fixed $x_j$, solve the customer assignment:
      $
      \theta(x) = \min \sum_{i,j} c_{ij} y_{ij}
      $
@@ -684,7 +684,7 @@ In the context of the Facility Location Problem, Benders Decomposition can effec
    - **Initial Solution:** Start by solving a relaxed version of the master problem (e.g., open no facilities or a minimal feasible set).
 
 #### **4. Solve the Subproblem:**
-   - **Assignment Feasibility:** Given the facilities opened (values of \(x_j\)), solve the subproblem to determine the optimal customer assignments.
+   - **Assignment Feasibility:** Given the facilities opened (values of $x_j$), solve the subproblem to determine the optimal customer assignments.
    - **Dual Solution:** If the subproblem is infeasible, generate a feasibility cut. If feasible, compute the cost and generate an optimality cut.
 
 #### **5. Generate Benders Cuts:**
@@ -737,8 +737,8 @@ In the context of Facility Location Problems, Branch and Cut is used to find the
 #### **1. Problem Formulation:**
    - **Objective:** Minimize the total cost, which includes both fixed costs of opening facilities and variable costs of serving customers from these facilities.
    - **Decision Variables:**
-     - \(x_j\): Binary variable indicating whether facility \(j\) is opened.
-     - \(y_{ij}\): Continuous variable indicating the fraction of demand from customer \(i\) served by facility \(j\).
+     - $x_j$: Binary variable indicating whether facility $j$ is opened.
+     - $y_{ij}$: Continuous variable indicating the fraction of demand from customer $i$ served by facility $j$.
    - **Constraints:**
      - Capacity constraints for each facility.
      - Demand satisfaction constraints for each customer.
@@ -747,11 +747,11 @@ In the context of Facility Location Problems, Branch and Cut is used to find the
 #### **2. Branch and Cut Specifics for FLP:**
 
 **a. Initial Linear Programming Relaxation:**
-   - Start with the LP relaxation of the MILP formulation, where the binary constraints on \(x_j\) are relaxed to continuous variables between 0 and 1.
+   - Start with the LP relaxation of the MILP formulation, where the binary constraints on $x_j$ are relaxed to continuous variables between 0 and 1.
 
 **b. Branching:**
-   - **Branching Decisions:** At each node of the branch-and-bound tree, decide which facility variables \(x_j\) to fix to 0 or 1. For example, if \(x_j\) is fractional, branch by creating two subproblems: one where \(x_j = 0\) and another where \(x_j = 1\).
-   - **Subproblems:** Solve these subproblems by fixing \(x_j\) and solving the relaxed LP for the remaining variables.
+   - **Branching Decisions:** At each node of the branch-and-bound tree, decide which facility variables $x_j$ to fix to 0 or 1. For example, if $x_j$ is fractional, branch by creating two subproblems: one where $x_j = 0$ and another where $x_j = 1$.
+   - **Subproblems:** Solve these subproblems by fixing $x_j$ and solving the relaxed LP for the remaining variables.
 
 **c. Bounding:**
    - **Node Bounds:** Calculate upper and lower bounds for each node in the branch-and-bound tree. Use these bounds to prune nodes that cannot improve the best-known solution.
@@ -789,8 +789,8 @@ Column Generation is a mathematical optimization technique used to solve large-s
 **2. General Steps:**
 
 **a. Problem Formulation:**
-   - **Original Problem:** Consider an LP problem where the objective is to minimize \(c^T x\) subject to \(Ax \geq b\), \(x \geq 0\).
-   - **Large-Scale Problem:** The problem has potentially thousands of variables \(x\) (columns), making it impractical to solve in its entirety.
+   - **Original Problem:** Consider an LP problem where the objective is to minimize $c^T x$ subject to $Ax \geq b$, $x \geq 0$.
+   - **Large-Scale Problem:** The problem has potentially thousands of variables $x$ (columns), making it impractical to solve in its entirety.
 
 **b. Decompose the Problem:**
    - **Master Problem:** Start with a restricted version of the problem that includes a subset of the variables (columns). Solve this smaller LP problem.
@@ -816,8 +816,8 @@ Column Generation is a mathematical optimization technique used to solve large-s
 **1. Problem Formulation:**
    - **Objective:** Minimize the total cost of opening facilities and serving customers.
    - **Decision Variables:**
-     - \(x_j\): Binary variable indicating whether facility \(j\) is opened.
-     - \(y_{ij}\): Continuous variable indicating the fraction of demand from customer \(i\) served by facility \(j\).
+     - $x_j$: Binary variable indicating whether facility $j$ is opened.
+     - $y_{ij}$: Continuous variable indicating the fraction of demand from customer $i$ served by facility $j$.
    - **Constraints:** 
      - Capacity constraints for each facility.
      - Demand satisfaction constraints for each customer.
@@ -857,10 +857,10 @@ Column Generation is a mathematical optimization technique used to solve large-s
 
 2. **Subproblem to Generate Columns:**
    - Use dual prices to solve a pricing problem that identifies additional facilities and assignments that would reduce the overall cost.
-   - Example: If adding a new facility \(j\) provides a lower cost of serving customers compared to the current facilities, this facility and its assignments are added as new columns.
+   - Example: If adding a new facility $j$ provides a lower cost of serving customers compared to the current facilities, this facility and its assignments are added as new columns.
 
 3. **Updated Master Problem:**
-   - Integrate the new facility \(j\) and its customer assignments into the master problem.
+   - Integrate the new facility $j$ and its customer assignments into the master problem.
    - Re-solve with updated columns to find a better solution.
 
 4. **Repeat:** Continue generating columns and updating the master problem until no more beneficial columns can be identified.
@@ -878,7 +878,7 @@ Column Generation is a powerful technique for solving large-scale Vehicle Routin
 #### **1. Problem Formulation:**
    - **Objective:** Minimize the total cost of the routes used by the vehicles.
    - **Decision Variables:**
-     - \( x_{r} \): Binary variable indicating whether route \( r \) is used (1) or not (0).
+     - $ x_{r} $: Binary variable indicating whether route $ r $ is used (1) or not (0).
    - **Constraints:**
      - Each customer must be visited exactly once.
      - Each route must start and end at a depot.
@@ -914,7 +914,7 @@ Column Generation is a powerful technique for solving large-scale Vehicle Routin
    $
    x_r \in \{0, 1\} \text{ for all } r \in R
    $
-   Where \(R\) is the set of columns (routes).
+   Where $R$ is the set of columns (routes).
 
 **b. Subproblem (Pricing Problem):**
    - **Objective:** Generate new routes that can potentially improve the master problem’s objective. 
@@ -983,9 +983,9 @@ In Column Generation, the decision on which variables (columns) to include in th
      \text{Reduced Cost}_r = c_r - \pi^T \cdot a_r
      $
      Where:
-     - \( c_r \): Cost associated with column \( r \).
-     - \( \pi \): Vector of dual prices (dual values) from the master problem's constraints.
-     - \( a_r \): Coefficients of column \( r \) in the constraints.
+     - $ c_r $: Cost associated with column $ r $.
+     - $ \pi $: Vector of dual prices (dual values) from the master problem's constraints.
+     - $ a_r $: Coefficients of column $ r $ in the constraints.
 
    - **Objective:** For a column (variable) to be added to the master problem, its reduced cost must be negative. This is because a negative reduced cost indicates that including the column will decrease the objective function value of the master problem, improving the solution.
 
@@ -1061,10 +1061,10 @@ $
 x \geq 0
 $
 Where:
-- \( c \) is a vector of costs.
-- \( A \) is a matrix of constraints.
-- \( b \) is a vector of right-hand side values.
-- \( x \) is a vector of decision variables.
+- $ c $ is a vector of costs.
+- $ A $ is a matrix of constraints.
+- $ b $ is a vector of right-hand side values.
+- $ x $ is a vector of decision variables.
 
 #### **Dual Problem:**
 The dual problem is derived from the primal problem and involves maximizing the dual objective subject to dual constraints. For the above primal problem, the dual problem is:
@@ -1079,24 +1079,24 @@ $
 y \geq 0
 $
 Where:
-- \( y \) is a vector of dual variables (also known as shadow prices).
+- $ y $ is a vector of dual variables (also known as shadow prices).
 
 ### **13.2. Principle of Primal-Dual Relationship**
 
 #### **Weak Duality Theorem:**
 - **Statement:** The value of the objective function for any feasible solution of the primal problem is always greater than or equal to the value of the objective function for any feasible solution of the dual problem.
-- **Mathematical Formulation:** If \(x^*\) is a feasible solution to the primal problem and \(y^*\) is a feasible solution to the dual problem, then:
+- **Mathematical Formulation:** If $x^*$ is a feasible solution to the primal problem and $y^*$ is a feasible solution to the dual problem, then:
   $
   c^T x^* \geq b^T y^*
   $
 
 #### **Strong Duality Theorem:**
 - **Statement:** If both the primal and dual problems have feasible solutions, then the optimal values of the primal and dual problems are equal.
-- **Mathematical Formulation:** If \(x^*\) and \(y^*\) are optimal solutions to the primal and dual problems, respectively, then:
+- **Mathematical Formulation:** If $x^*$ and $y^*$ are optimal solutions to the primal and dual problems, respectively, then:
   $
   c^T x^* = b^T y^*
   $
-- **Complementary Slackness:** For optimal solutions \(x^*\) and \(y^*\), the complementary slackness conditions hold:
+- **Complementary Slackness:** For optimal solutions $x^*$ and $y^*$, the complementary slackness conditions hold:
   $
   y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i
   $
@@ -1169,9 +1169,9 @@ The Simplex method is an algorithm for solving linear programming (LP) problems.
 
 1. **Formulate the Problem:**
    - Convert the LP problem into standard form:
-     - Objective function: Maximize \(c^T x\) or Minimize \(c^T x\).
-     - Constraints: \(Ax \leq b\) (for maximization problems, constraints are often \(Ax = b\)).
-     - Non-negativity constraints: \(x \geq 0\).
+     - Objective function: Maximize $c^T x$ or Minimize $c^T x$.
+     - Constraints: $Ax \leq b$ (for maximization problems, constraints are often $Ax = b$).
+     - Non-negativity constraints: $x \geq 0$.
 
 2. **Initialize:**
    - Set up the initial basic feasible solution. This usually involves introducing slack variables to convert inequalities into equalities and starting with a feasible solution, often found using the **Big M Method** or **Two-Phase Method** if necessary.
@@ -1209,14 +1209,14 @@ The Traveling Salesman Problem (TSP) can be formulated as a linear programming p
 2. **LP Formulation:**
 
    **Variables:**
-   - Let \( x_{ij} \) be a binary variable equal to 1 if the route goes directly from city \( i \) to city \( j \), and 0 otherwise.
+   - Let $ x_{ij} $ be a binary variable equal to 1 if the route goes directly from city $ i $ to city $ j $, and 0 otherwise.
 
    **Objective Function:**
    - Minimize the total distance:
      $
      \text{Minimize } \sum_{i \neq j} d_{ij} x_{ij}
      $
-     where \( d_{ij} \) is the distance between city \( i \) and city \( j \).
+     where $ d_{ij} $ is the distance between city $ i $ and city $ j $.
 
    **Constraints:**
    - Each city must be visited exactly once:
@@ -1301,10 +1301,10 @@ $Ax \geq b$
 $x \geq 0$
 
 where:
-- \(c\) is a vector of coefficients for the objective function.
-- \(x\) is the vector of decision variables.
-- \(A\) is the matrix representing the coefficients of the constraints.
-- \(b\) is the vector representing the right-hand side of the constraints.
+- $c$ is a vector of coefficients for the objective function.
+- $x$ is the vector of decision variables.
+- $A$ is the matrix representing the coefficients of the constraints.
+- $b$ is the vector representing the right-hand side of the constraints.
 
 #### **Dual Problem:**
 
@@ -1318,15 +1318,15 @@ $A^T y \leq c$
 $y \geq 0$
 
 where:
-- \(y\) is the vector of dual variables (also known as shadow prices).
-- \(A^T\) is the transpose of matrix \(A\).
+- $y$ is the vector of dual variables (also known as shadow prices).
+- $A^T$ is the transpose of matrix $A$.
 
 ### **15.2. Principles of Primal-Dual Relationship**
 
 #### **Weak Duality Theorem:**
 
 - **Statement:** The value of the objective function for any feasible solution of the primal problem is always greater than or equal to the value of the objective function for any feasible solution of the dual problem.
-- **Mathematical Formulation:** If \(x^*\) is a feasible solution to the primal problem and \(y^*\) is a feasible solution to the dual problem, then:
+- **Mathematical Formulation:** If $x^*$ is a feasible solution to the primal problem and $y^*$ is a feasible solution to the dual problem, then:
   $c^T x^* \geq b^T y^*$
   This inequality implies that the objective value of the dual problem provides a lower bound for the objective value of the primal problem.
 
@@ -1343,7 +1343,7 @@ where:
 - **Mathematical Formulation:**
   $y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i$
   $x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j$
-  where \(a_i\) is the \(i\)-th row of matrix \(A\), and \(b_i\) is the \(i\)-th element of vector \(b\).
+  where $a_i$ is the $i$-th row of matrix $A$, and $b_i$ is the $i$-th element of vector $b$.
 
 ### **15.3. Practical Implications**
 
@@ -1384,8 +1384,8 @@ $y_1 \leq 3$
 $y_1, y_2 \geq 0$
 
 By solving both problems:
-- **Primal Solution:** \(x_1 = 2, x_2 = 2\) with objective value 10.
-- **Dual Solution:** \(y_1 = 2, y_2 = 0\) with objective value 10.
+- **Primal Solution:** $x_1 = 2, x_2 = 2$ with objective value 10.
+- **Dual Solution:** $y_1 = 2, y_2 = 0$ with objective value 10.
 
 The optimal values are equal, demonstrating strong duality. Complementary slackness conditions can also be verified to confirm optimality.
 
