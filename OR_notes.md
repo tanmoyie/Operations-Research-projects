@@ -18,12 +18,12 @@ $\int_a^b f(x)\,dx = F(b) - F(a)$
 
 Subject to constraints:
 
-$
+$$
 \begin{align*} x_1 + x_2 & \leq 100 \quad (\text{resource constraint}) \\
 2x_1 + x_2 & \geq 150 \quad (\text{demand constraint}) \\
 x_1, x_2 & \geq 0 \quad (\text{non-negativity constraint}) \\
 \end{align*}
-$  
+$$  
 
 ### **Mixed-Integer Programming (MIP)**
 - **Objective:** Similar to LP, you want to optimize a linear objective function subject to linear constraints. However, in MIP, some or all decision variables are restricted to be integers.
@@ -32,20 +32,18 @@ $
 **Example:**
 Consider the same problem but now you must produce whole units of A and B, i.e., $x_1$ and $x_2$ must be integers. The problem formulation becomes:
 
-$
-\text{Minimize } C = 2x_1 + 3x_2
-$
+$\text{Minimize } C = 2x_1 + 3x_2$
 
 Subject to constraints:
 
-$
+$$
 \begin{align*}
 x_1 + x_2 & \leq 100 \\
 2x_1 + x_2 & \geq 150 \\
 x_1, x_2 & \geq 0 \\
 x_1, x_2 & \text{are integers}
 \end{align*}
-$
+$$
 
 ### **Key Difference:**
 - **LP:** All variables are continuous.
