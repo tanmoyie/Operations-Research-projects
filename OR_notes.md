@@ -1348,9 +1348,7 @@ where:
 
 - **Statement:** If both the primal and dual problems have feasible solutions, then the optimal values of the primal and dual problems are equal.
 - **Mathematical Formulation:** If \(x^*\) is an optimal solution to the primal problem and \(y^*\) is an optimal solution to the dual problem, then:
-  $
-  c^T x^* = b^T y^*
-  $
+  $c^T x^* = b^T y^*$
 - **Implication:** The optimal value of the primal problem is equal to the optimal value of the dual problem, provided both problems are feasible.
 
 #### **Complementary Slackness:**
@@ -1383,6 +1381,7 @@ Consider a simple LP problem:
 
 **Primal Problem:**
 $\text{Minimize } 2x_1 + 3x_2$
+
 **Subject to:**
 $x_1 + x_2 \geq 4$
 
