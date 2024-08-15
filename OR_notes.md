@@ -16,8 +16,7 @@ $$\int_a^b f(x)\,dx = F(b) - F(a)$$
 
 Subject to constraints:
 
-$$
-x_1 + x_2 & \leq 100 \quad (\text{resource constraint}) \\
+$$  x_1 + x_2 & \leq 100 \quad (\text{resource constraint}) $$
 2x_1 + x_2 & \geq 150 \quad (\text{demand constraint}) \\
 x_1, x_2 & \geq 0 \quad (\text{non-negativity constraint})
 $$
