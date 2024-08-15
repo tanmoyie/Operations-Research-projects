@@ -1389,9 +1389,11 @@ $$
 $$
 x_1 + x_2 \geq 4
 $$
-$$
+
+$
 x_1 \geq 2
-$$
+$
+
 $$
 x_1, x_2 \geq 0
 $$
@@ -1404,10 +1406,9 @@ $\text{Maximize } 4y_1 + 2y_2$
 **Subject to:**
 $y_1 + y_2 \leq 2$
 
-$$ y_1 \leq 3 $$
-$$
-y_1, y_2 \geq 0
-$$
+$y_1 \leq 3$
+
+$y_1, y_2 \geq 0$
 
 By solving both problems:
 - **Primal Solution:** \(x_1 = 2, x_2 = 2\) with objective value 10.
