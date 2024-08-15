@@ -1341,7 +1341,8 @@ where:
 
 - **Statement:** At optimality, the primal and dual solutions satisfy complementary slackness conditions. This means that for each constraint in the primal and each variable in the dual, either the constraint is tight (saturated) or the corresponding dual variable is zero, and vice versa.
 - **Mathematical Formulation:**
-  \(y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i)\
+
+  $y_i^* (a_i^T x^* - b_i) = 0 \quad \text{for all } i$
   $x_j^* (c_j - (A^T y^*)_j) = 0 \quad \text{for all } j$
   where $a_i$ is the $i$-th row of matrix $A$, and $b_i$ is the $i$-th element of vector $b$.
 
